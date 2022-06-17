@@ -1,5 +1,5 @@
 ﻿# Robotic Arm
-This will serve as a brief description of your project. Limit this to three sentences because it can become overly long at that point. This copy should draw the user in and make she/him want to read more.
+Literally a robotic arm, can be controlled with a phone and controller. 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
@@ -22,3 +22,9 @@ My final milestone is the increased reliability and accuracy of my robot. I amel
 My first milestone was setting up and hooking up the Raspberry Pi and all the necessary components onto my tv. The heatsinks, the sd card, and the controller were all added to ensure that the Raspberry Pi was working. Instead of the Raspberry Pi Os software, I had to first download a different software called Retro Pie. With Retro Pie, I needed to download an Imager for Raspberry Pi. Raspberry Pi Imager automatically downloads a list of the latest versions of Raspbian supported by the Raspberry Pi. Raspbian is the typical Raspberry Pi Os software, the one I needed on the Raspberry Pi was Retro Pi. With the included SD card, I plugged in the SD into my computer and launched the Imager. The imager allowed me to set the Operating System to Retro Pi instead of Raspbian onto the SD card. With the OS imaged onto the SD, I plugged the SD card back into the Raspberry Pi and rebooted the system and Retro Bi booted up.
 
 [![First Milestone](https://res.cloudinary.com/marcomontalbano/image/upload/v1612574117/video_to_markdown/images/youtube--CaCazFBhYKs-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=CaCazFBhYKs "First Milestone"){:target="_blank" rel="noopener"}
+
+# Starter Project
+
+I made the useless machine, which works through a 2-switch system. When in resting position, the arm's unique design keeps a snap switch turned off. Once the switch on the top is manually turned on, the arm will move and get off the snap switch, meaning that both switches are now on. Once it turns the other switch off, it will still be able to move back into the box because the snap switch is still on, and it changes the current to move the motor in a different direction and changes the LED color
+
+[! [Starter Project] (https://www.youtube.com/watch?v=Y4uDYHtt_Gk)]
