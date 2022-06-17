@@ -27,4 +27,5 @@ My first milestone was setting up and hooking up the Raspberry Pi and all the ne
 
 I made the useless machine, which works through a 2-switch system. When in resting position, the arm's unique design keeps a snap switch turned off. Once the switch on the top is manually turned on, the arm will move and get off the snap switch, meaning that both switches are now on. Once it turns the other switch off, it will still be able to move back into the box because the snap switch is still on, and it changes the current to move the motor in a different direction and changes the LED color
 
-[! [Starter Project] (https://www.youtube.com/watch?v=Y4uDYHtt_Gk)]
+[! [Starter Project] (https://www.youtube.com/watch?v=Y4uDYHtt_Gk){:target="_blank" rel="noopener"}
+
