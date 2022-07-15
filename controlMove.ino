@@ -15,6 +15,7 @@ const int lx = A3;
 const int ly = A1;
 
 void setup() {
+  //initialization
   pinMode(rk, INPUT_PULLUP);
   pinMode(lk, INPUT_PULLUP);
   
@@ -33,7 +34,7 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  //get values of joystick coordinates every loop
   
   rxPos = analogRead(rx);
   ryPos = analogRead(ry);
@@ -53,9 +54,11 @@ void loop() {
   
 }
 
+//universal movement function
 void servoMove(Servo myservo, int servoPos, int stickPos, int keyPos) {
+  //only move if stick is being held down
   if(keyPos == 0) {
-    servoPos = map(stickPos, 0, 1023, 0, 180);
+    servoPos = map(stickPos, 0, 1023, 0, 180); //map joystick position to servo position
     myservo.write(servoPos);
   }
 }
