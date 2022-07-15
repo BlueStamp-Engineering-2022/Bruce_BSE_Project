@@ -12,7 +12,7 @@ boolean startBit  = false;
 int num_receive = 0;
 
 void setup() {
-  // put your setup code here, to run once:
+  //intialization, booting to the initial position and attaching the servos
   claw.write(clawPos);
   claw.attach(9);
   
@@ -28,23 +28,23 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  //reads the information sent over
   while (Serial.available())
   {
-    incomingByte = Serial.read();              //One byte by byte, the next sentence is read into a string array to form a completed packet
-    if (incomingByte == '%') {
+    incomingByte = Serial.read();              
+    if (incomingByte == '%') { //the commands all start with '%', thus the program knows to start reading when it starts with this
       num_receive = 0;
-      startBit = true;
+      startBit = true; //start reading through the byte
     }
     if (startBit == true) {
       num_receive++;
-      inputString += (char) incomingByte;     
+      inputString += (char) incomingByte; //turning the incomining byte into a string by adding the characters one by one     
     }
-    if (startBit == true && incomingByte == '#') {
-      newLineReceived = true;
-      startBit = false;
+    if (startBit == true && incomingByte == '#') { //the end of each byte is a '#', thus the program knows to terminiate appending if that is the received character
+      newLineReceived = true; //a new command has been received
+      startBit = false; //stop reading
     }
-    if(num_receive >= 40) {
+    if(num_receive >= 40) { //resets the string if the recieved byte is too long
       num_receive = 0;
       startBit = false;
       newLineReceived = false;
@@ -52,18 +52,20 @@ void loop() {
     }  
   }
 
-  if(newLineReceived) {
-    switch(inputString[1]) {
+  if(newLineReceived) { //if a full command has been sent
+    switch(inputString[1]) { //the second character of each command signifies what to do
+    //loops are to accomodate for long presses
+    //essentially, normal commands are in the form "%A#" (example), but by adding more letters, such as "%AAA#," commands can be chained together by a for loop
       case '6':
         for(int i = 2; i <= inputString.length(); i++) {
           clawPos = servoMove(clawPos, false); 
           claw.write(clawPos); 
-        } break; //open
+        } break; //open claw
       case '5': 
         for(int i = 2; i <= inputString.length(); i++) {
           clawPos = servoMove(clawPos, true); 
           claw.write(clawPos);
-        } break; //close
+        } break; //close claw
       
       case '4': 
         for(int i = 2; i <= inputString.length(); i++) {
@@ -101,12 +103,13 @@ void loop() {
       default: break;
     }
     Serial.println(inputString);
-    inputString = "";   // clear the string
-    newLineReceived = false;
+    inputString = "";  // clear the string
+    newLineReceived = false; //the command has been used
   }
   
 }
 
+//universal movement function
 int servoMove(int servoPos, boolean tag) {
   if(tag) {
     servoPos = servoPos - 3;
