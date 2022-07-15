@@ -1,2 +1,1 @@
-To edit your portfolio, please go over to the gh_pages branch!
-Name: FirstName_BSE_Portfolio
+This my repository for my 2022 Bluestamp Project where I made a robotic arm. All of the code and schematics are on this page. To see the website with pictures and milestones, go to https://bluestamp-engineering-2022.github.io/Bruce_BSE_Project/. 
